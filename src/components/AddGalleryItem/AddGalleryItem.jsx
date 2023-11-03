@@ -8,7 +8,7 @@ const AddGalleryItem = () => {
     const fileInput = useRef()
 
     function handleTakeImage(){
-        fileInput.current.click()
+        fileInput.current?.click()
     }
 
     function handleLoadImage(e){

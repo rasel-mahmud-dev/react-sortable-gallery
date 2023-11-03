@@ -27,17 +27,17 @@ const Gallery = () => {
 
     const handleDragEnd = useCallback((event) => {
         const {active, over} = event;
-        if (active.id !== over?.id) {
+        if (active?.id !== over?.id) {
             setItems((items) => {
-                const oldIndex = items.findIndex(i => i.id === active.id);
-                const newIndex = items.findIndex(i => i.id === over.id);
+                const oldIndex = items.findIndex(i => i.id === active?.id);
+                const newIndex = items.findIndex(i => i.id === over?.id);
 
                 return arrayMove(items, oldIndex, newIndex);
             });
         }
-
         setActiveId(null);
     }, []);
+
     const handleDragCancel = useCallback(() => {
         setActiveId(null);
     }, []);

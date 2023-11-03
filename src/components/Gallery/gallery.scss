@@ -6,10 +6,13 @@
 	border: 1px solid var(--border-color);
 	margin: 40px 0;
 	overflow: hidden;
+	box-shadow: 0 4px 14px -12px #393939cf;
+
 	@include getDown(800px) {
 		margin: 0;
 		border-radius: 0;
 	}
+
 	.gallery {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
