@@ -1,3 +1,4 @@
+@import "@/scss/mixin";
 
 .gallery-item {
 	border-radius: 10px;
@@ -15,6 +16,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
+		max-height: 600px;
 	}
 
 	&:before {
@@ -29,22 +31,26 @@
 		transition: background-color .5s ease;
 	}
 
-	&:nth-child(1) {
+	&:nth-child(1):not(.add-btn-item) {
 		grid-row-start: span 2;
 		grid-column-start: span 2;
-		transform-origin: 0 0 ;
-		//height: 410px
+		transform-origin: 0 0;
+		@include getDown(390px) {
+			grid-row-start: span 1;
+			grid-column-start: span 1;
+		}
 	}
 
-	.select-input{
+	.select-input {
 		position: absolute;
+		visibility: hidden;
 		top: 0;
 		left: 0;
 		transform: translate(8px, 8px);
 		z-index: 10;
 	}
 
-	&:hover{
+	&:hover {
 		&:before {
 			background-color: rgba(65, 65, 65, 0.42);
 			border-radius: 10px;
@@ -53,14 +59,16 @@
 		}
 
 		// move on the top when mouse over on item.
-		.select-input{
+		.select-input {
 			z-index: 13;
+			visibility: visible;
 		}
 	}
 
 	&.currentDragged {
 		position: relative;
 		overflow: hidden;
+
 		&:before {
 			background-color: #dcdcdc;
 			border-radius: 10px;
@@ -73,42 +81,62 @@
 		opacity: 1;
 		cursor: grab;
 		background: #ffffff;
+
 		&:before {
 			visibility: hidden;
 		}
 	}
 
-	.box img {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-	}
-
-	&.selected{
+	&.selected {
 		&:before {
 			background-color: rgba(171, 171, 171, 0.22);
 			border-radius: 10px;
 			visibility: visible;
 			z-index: 11;
 		}
+		.select-input {
+			visibility: visible;
+		}
 	}
 
 
-	&.add-btn-item{
+	&.add-btn-item {
 		border-style: dashed !important;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		row-gap: 10px;
 		cursor: pointer;
-		img{
+
+		&::before {
+			display: none;
+		}
+
+		img {
+			opacity: 0;
+		}
+
+		.icon {
 			height: 20px;
 			width: 20px;
+			opacity: 1;
 		}
-		label{
+
+		label {
 			font-weight: 500;
 			font-size: 14px;
 			color: #2d2d2d;
+		}
+
+		.add-btn-content {
+			display: flex;
+			align-items: center;
+			position: absolute;
+			flex-direction: column;
+			gap: 10px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
 		}
 	}
 }

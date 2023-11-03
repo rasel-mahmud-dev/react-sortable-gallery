@@ -33,11 +33,12 @@ const AddGalleryItem = () => {
 
     return (
         <div onClick={handleTakeImage} className="gallery-item add-btn-item">
-
             <img src="/image.svg" alt=""/>
-            <label htmlFor="">Add Image</label>
+            <div className="add-btn-content">
+                <img className="icon" src="/image.svg" alt=""/>
+                <label htmlFor="">Add Image</label>
+            </div>
             <input accept="image/*" onChange={handleLoadImage} ref={fileInput} type="file"  hidden={true} />
-
         </div>
     );
 };
