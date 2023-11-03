@@ -5,6 +5,8 @@ import {ActionTypes} from "@/store/actionTypes.js";
 let dispatch;
 
 function reducer(state, action) {
+    let selectedIndex = -1;
+    let payload =  action.payload
     switch (action.type) {
         case ActionTypes.LOAD_IMAGES:
             return {
@@ -17,6 +19,15 @@ function reducer(state, action) {
                 ...state,
                 images: state.images.filter(item => action.payload?.includes(item.id)),
                 selected: []
+            }
+
+        case ActionTypes.TOGGLE_SELECT_ITEM:
+            selectedIndex = state.selected.indexOf(payload)
+            return {
+                ...state,
+                selected: selectedIndex === -1
+                    ? [...state.selected, payload]
+                    : state.selected.splice(selectedIndex, 1)
             }
 
         default:

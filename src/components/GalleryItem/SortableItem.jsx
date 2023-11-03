@@ -4,7 +4,6 @@ import {CSS} from "@dnd-kit/utilities";
 
 const SortableItem = (props) => {
     const {
-        isDragging,
         attributes,
         listeners,
         setNodeRef,
@@ -23,7 +22,6 @@ const SortableItem = (props) => {
         <GalleryItem
             ref={setNodeRef}
             style={style}
-            withOpacity={isDragging}
             {...props}
             {...attributes}
             {...listeners}

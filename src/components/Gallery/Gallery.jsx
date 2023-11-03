@@ -1,5 +1,4 @@
 import "./gallery.scss"
-import GalleryItem from "@/components/GalleryItem/GalleryItem.jsx";
 import useGalleryStore from "@/store/useGalleryStore.js";
 import GalleryHeader from "@/components/GalleryHeader/GalleryHeader.jsx";
 import {closestCenter, DndContext, DragOverlay, MouseSensor, TouchSensor, useSensor, useSensors} from "@dnd-kit/core";
@@ -67,7 +66,7 @@ const Gallery = () => {
                     </div>
                 </SortableContext>
 
-                <DragOverlay className="dragged-placeholder" adjustScale style={{transformOrigin: '0 0 '}}>
+                <DragOverlay className="dragged-placeholder" adjustScale>
                     {/*<Photo url={items.find(i => i.id === activeId)?.image} index={items.findIndex(i => i.id === activeId)} />*/}
                     {activeId ? <SortableItem
                         currentDragged={false}
