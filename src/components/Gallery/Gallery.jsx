@@ -5,11 +5,11 @@ import {closestCenter, DndContext, DragOverlay, MouseSensor, TouchSensor, useSen
 import {arrayMove, rectSortingStrategy, SortableContext} from "@dnd-kit/sortable";
 import {useCallback, useEffect, useState} from "react";
 import SortableItem from "@/components/GalleryItem/SortableItem.jsx";
+import AddGalleryItem from "@/components/AddGalleryItem/AddGalleryItem.jsx";
 
 const Gallery = () => {
 
     const {images} = useGalleryStore();
-
     const [items, setItems] = useState(images)
 
     useEffect(() => {
@@ -57,17 +57,17 @@ const Gallery = () => {
                     <div className="gallery">
                         {items.map((item, i) => (
                             <SortableItem
+                                key={item.id}
                                 index={i}
                                 currentDragged={activeId === item.id}
-                                key={item.id}
                                 item={item}
                             />
                         ))}
+                        <AddGalleryItem />
                     </div>
                 </SortableContext>
 
                 <DragOverlay className="dragged-placeholder" adjustScale>
-                    {/*<Photo url={items.find(i => i.id === activeId)?.image} index={items.findIndex(i => i.id === activeId)} />*/}
                     {activeId ? <SortableItem
                         currentDragged={false}
                         item={items.find(i => i.id === activeId)}

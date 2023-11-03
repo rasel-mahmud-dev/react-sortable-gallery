@@ -1,6 +1,7 @@
 import {useSortable} from "@dnd-kit/sortable";
 import GalleryItem from "@/components/GalleryItem/GalleryItem.jsx";
 import {CSS} from "@dnd-kit/utilities";
+import PropTypes from "prop-types";
 
 const SortableItem = (props) => {
     const {
@@ -28,5 +29,13 @@ const SortableItem = (props) => {
         />
     );
 };
+
+SortableItem.propTypes = {
+    item: PropTypes.shape({
+        image: PropTypes.string.isRequired,
+        title: PropTypes.string,
+        id: PropTypes.number,
+    })
+}
 
 export default SortableItem

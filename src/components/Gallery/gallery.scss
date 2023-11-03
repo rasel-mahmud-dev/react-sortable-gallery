@@ -3,11 +3,13 @@
 	background-color: white;
 	border-radius: 15px;
 	border: 1px solid var(--border-color);
-	padding: 10px 30px 30px 30px;
 	margin: 40px 0;
+	overflow: hidden;
+
 	.gallery {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		gap: 15px;
+		padding: 30px;
 	}
 }

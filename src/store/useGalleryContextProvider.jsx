@@ -14,10 +14,16 @@ function reducer(state, action) {
                 images: action.payload
             }
 
+        case ActionTypes.ADD_NEW:
+            return {
+                ...state,
+                images: [...state.images, payload]
+            }
+
         case ActionTypes.DELETE_IMAGES:
             return {
                 ...state,
-                images: state.images.filter(item => action.payload?.includes(item.id)),
+                images: state.images.filter(item => !action.payload?.includes(item.id)),
                 selected: []
             }
 
@@ -27,7 +33,7 @@ function reducer(state, action) {
                 ...state,
                 selected: selectedIndex === -1
                     ? [...state.selected, payload]
-                    : state.selected.splice(selectedIndex, 1)
+                    : state.selected.filter(el=> el !== payload)
             }
 
         default:

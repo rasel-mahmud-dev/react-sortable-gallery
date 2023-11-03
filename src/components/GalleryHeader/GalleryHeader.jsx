@@ -3,6 +3,7 @@ import useGalleryStore from "@/store/useGalleryStore.js";
 import "./galleryHeader.scss"
 import {useDispatch} from "@/store/useGalleryContextProvider.jsx";
 import {ActionTypes} from "@/store/actionTypes.js";
+import Button from "@/components/Button/Button.jsx";
 
 const GalleryHeader = () => {
     const {selected} = useGalleryStore()
@@ -24,8 +25,11 @@ const GalleryHeader = () => {
 
             { selected.length ? (
                 <div className="gallery-header__action_row">
-                    <h1 className="gallery-header__select-count">{selected.length} {formatFileLabel(selected.length)}  Selected: </h1>
-                    <h4 onClick={handleDeleteFiles} className="gallery-header__delete">{selected.length} {formatFileLabel(selected.length)}  Selected: </h4>
+                    <h1 className="gallery-header__select-count">{selected.length} {formatFileLabel(selected.length)} Selected</h1>
+                    <Button variant="text" onClick={handleDeleteFiles}
+                            className="gallery-header__delete">
+                        Delete <span>{formatFileLabel(selected.length)}</span>
+                    </Button>
                 </div>
             ) : (
                 <h1 className="gallery-header__title">Gallery</h1>
