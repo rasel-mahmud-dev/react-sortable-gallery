@@ -6,7 +6,8 @@ let dispatch;
 
 function reducer(state, action) {
     let selectedIndex = -1;
-    let payload =  action.payload
+    let payload = action.payload
+
     switch (action.type) {
         case ActionTypes.LOAD_IMAGES:
             return {
@@ -33,7 +34,15 @@ function reducer(state, action) {
                 ...state,
                 selected: selectedIndex === -1
                     ? [...state.selected, payload]
-                    : state.selected.filter(el=> el !== payload)
+                    : state.selected.filter(el => el !== payload)
+            }
+
+        case ActionTypes.SELECT_ALL:
+            return {
+                ...state,
+                selected: state.selected.length === state.images.length
+                    ? []
+                    : state.images.map(el => el.id)
             }
 
         default:

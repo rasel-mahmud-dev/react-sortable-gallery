@@ -18,7 +18,11 @@
 		align-items: center;
 	}
 
-	&__select-count{}
+	&__select-count{
+		display: flex;
+		align-items: center;
+		column-gap: 6px;
+	}
 	&__delete{
 		color: red;
 		text-transform: capitalize;
