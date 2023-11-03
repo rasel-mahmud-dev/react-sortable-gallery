@@ -12,6 +12,13 @@ function reducer(state, action) {
                 images: action.payload
             }
 
+        case ActionTypes.DELETE_IMAGES:
+            return {
+                ...state,
+                images: state.images.filter(item => action.payload?.includes(item.id)),
+                selected: []
+            }
+
         default:
             return state
     }
@@ -19,8 +26,8 @@ function reducer(state, action) {
 
 
 function useGalleryContextProvider(HigherOrderComponent) {
-    return function (){
-        const [state, stateDispatch] = useReducer(reducer, initialState)
+    return function () {
+        const [state, stateDispatch] = useReducer(reducer, initialState,)
         dispatch = stateDispatch
 
         return (
