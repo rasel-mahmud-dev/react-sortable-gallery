@@ -1,4 +1,4 @@
-# React Sortable Galley
+# React Sortable Gallery
 
 ### Features
 - Drag and drop re-arrange grid items.
