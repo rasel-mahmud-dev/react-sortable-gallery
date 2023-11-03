@@ -1,18 +1,6 @@
-
-.gallery{
+.gallery {
 	--galley-border: red;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	gap: 15px;
-	&-item{
-		list-style: none;
-		border: 1px solid var(--galley-border);
-		border-radius: 10px;
-		overflow: hidden;
-		img{
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-		}
-	}
 }

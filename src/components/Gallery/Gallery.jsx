@@ -1,7 +1,7 @@
 import "./gallery.scss"
+import GalleryItem from "../GalleryItem/GalleryItem.jsx";
 
 const Gallery = () => {
-
 
     function loadImages() {
         return [
@@ -24,9 +24,7 @@ const Gallery = () => {
     return (
         <section className="gallery">
             {images.map(item => (
-                <li key={item.id} className={`gallery-item`}>
-                    <img src={item.image}/>
-                </li>
+                <GalleryItem key={item.id} image={item.image}/>
             ))}
         </section>
     );
