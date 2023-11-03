@@ -1,17 +1,21 @@
 import "./gallery.scss"
 import GalleryItem from "@/components/GalleryItem/GalleryItem.jsx";
-import {useContext} from "react";
-import GalleryContext from "@/store/GalleryContext.js";
+import useGalleryStore from "@/store/useGalleryStore.js";
+import GalleryHeader from "@/components/GalleryHeader/GalleryHeader.jsx";
 
 const Gallery = () => {
 
-    const {images} = useContext(GalleryContext)
+    const {images} = useGalleryStore()
 
     return (
-        <section className="gallery">
-            {images.map(item => (
-                <GalleryItem key={item.id} image={item.image}/>
-            ))}
+        <section className="gallery-wrapper">
+            <GalleryHeader />
+            <div className="gallery">
+                {images.map(item => (
+                    <GalleryItem key={item.id} image={item.image}/>
+                ))}
+            </div>
+
         </section>
     );
 };

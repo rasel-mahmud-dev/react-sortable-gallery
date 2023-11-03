@@ -1,12 +1,10 @@
 import Gallery from "@/components/Gallery/Gallery";
 import useGalleryContextProvider, {useDispatch} from "@/store/useGalleryContextProvider";
-import {useContext, useEffect} from "react";
-import GalleryContext from "@/store/GalleryContext.js";
+import {useEffect} from "react";
 import {ActionTypes} from "@/store/actionTypes.js";
 
-function App() {
-    const state = useContext(GalleryContext)
 
+function App() {
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -28,12 +26,10 @@ function App() {
         })
     }, [])
 
-    console.log(state)
-
     return (
-        <div>
+        <main className="main-container">
             <Gallery />
-        </div>
+        </main>
     )
 }
 

@@ -1,7 +1,8 @@
 import {createContext} from "react";
 
 export const initialState = {
-    images: []
+    images: [],
+    selected: []
 }
 
 const GalleryContext = createContext(initialState)

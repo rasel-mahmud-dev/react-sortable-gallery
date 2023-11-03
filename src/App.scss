@@ -1,0 +1,26 @@
+:root{
+	--border-color: #858585;
+}
+
+html, body{
+	margin: 0;
+	padding: 0;
+}
+*{
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+body{
+	background-color: #DAE0E8;
+}
+
+.main-container{
+	max-width: 900px;
+	margin: auto;
+}
+
+h1, h2, h3{
+	margin: 0;
+	padding: 0;
+}
